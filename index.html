@@ -17,7 +17,7 @@
             --primary-blue: #1a3b5d;      /* deep navy blue */
             --secondary-blue: #2c5a8c;    /* medium blue */
             --light-blue: #eaf0f8;        /* background / light */
-            --gold: #f4b841;               /* accent gold (from original) */
+            --gold: #f4b841;               /* accent gold */
             --white: #ffffff;
             --gray-light: #f5f7fa;
             --text-dark: #2e3b4e;
@@ -37,7 +37,7 @@
             overflow-x: hidden;
         }
 
-        /* ----- top header (social, contacts, quick links) like original ----- */
+        /* ----- top header (social, contacts, quick links) ----- */
         .top-header {
             background-color: var(--primary-blue);
             padding: 8px 4%;
@@ -163,6 +163,7 @@
             cursor: pointer;
         }
 
+        /* ===== REFINED MOBILE OVERLAY ===== */
         /* overlay / mobile menu (only for small screens) */
         .mobile-overlay {
             position: fixed;
@@ -175,7 +176,7 @@
             box-shadow: -5px 0 30px rgba(0,0,0,0.2);
             z-index: 2000;
             transition: right 0.4s;
-            padding: 5rem 2rem;
+            padding: 4rem 2rem 2rem 2rem;  /* adjusted top padding */
             border-left: 6px solid var(--gold);
         }
 
@@ -185,35 +186,41 @@
 
         .close-btn {
             position: absolute;
-            top: 25px;
-            right: 30px;
-            font-size: 2.5rem;
+            top: 20px;
+            right: 25px;
+            font-size: 2rem;  /* slightly smaller */
             color: var(--primary-blue);
             cursor: pointer;
+            line-height: 1;
+            transition: 0.2s;
+        }
+        .close-btn:hover {
+            color: var(--gold);
         }
 
         .mobile-nav-links {
             list-style: none;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
         .mobile-nav-links li {
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.2rem;  /* reduced spacing */
         }
         .mobile-nav-links a {
             text-decoration: none;
             color: var(--primary-blue);
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 1.4rem;      /* PROPORTIONAL SIZE — reduced from 1.8rem */
+            font-weight: 600;        /* slightly lighter weight fits mobile */
             transition: 0.2s;
-            border-left: 5px solid transparent;
-            padding-left: 15px;
+            border-left: 4px solid transparent;
+            padding-left: 12px;
+            display: inline-block;
         }
         .mobile-nav-links a:hover {
             border-left-color: var(--gold);
             color: var(--gold);
         }
 
-        /* ----- hero slider (simple version) ----- */
+        /* ----- hero slider ----- */
         .hero {
             background: linear-gradient( rgba(26, 59, 93, 0.8), rgba(16, 40, 60, 0.9) ), 
                         url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80');
@@ -271,7 +278,7 @@
             color: var(--primary-blue);
         }
 
-        /* ----- quick info cards (like mission/vision tabs simplified) ----- */
+        /* ----- quick info cards ----- */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -409,7 +416,7 @@
             letter-spacing: 1px;
         }
 
-        /* ----- news & updates (like original) ----- */
+        /* ----- news & updates ----- */
         .news-section {
             padding: 4rem 6%;
         }
@@ -528,7 +535,7 @@
 </head>
 <body>
 
-    <!-- ===== TOP HEADER (social, contacts, quick links) ===== -->
+    <!-- ===== TOP HEADER ===== -->
     <div class="top-header">
         <div class="contact-info">
             <a href="mailto:info@mercyinternational.edu"><i class="fas fa-envelope"></i> info@mercyinternational.edu</a>
@@ -547,7 +554,7 @@
         </div>
     </div>
 
-    <!-- ===== MAIN HEADER with sticky logo + desktop nav & menu icon ===== -->
+    <!-- ===== MAIN HEADER ===== -->
     <header class="main-header">
         <div class="logo-area">
             <h1>MERCY INTERNATIONAL SCHOOLS</h1>
@@ -568,7 +575,7 @@
         <button class="menu-icon" id="menuToggle"><i class="fas fa-bars-staggered"></i></button>
     </header>
 
-    <!-- ===== MOBILE OVERLAY (hidden by default) ===== -->
+    <!-- ===== MOBILE OVERLAY (with proportional text) ===== -->
     <div class="mobile-overlay" id="mobileOverlay">
         <span class="close-btn" id="closeNav"><i class="fas fa-times-circle"></i></span>
         <ul class="mobile-nav-links">
@@ -579,7 +586,7 @@
         </ul>
     </div>
 
-    <!-- ===== HERO SECTION (like original slider) ===== -->
+    <!-- ===== HERO SECTION ===== -->
     <section class="hero">
         <div class="hero-content">
             <h2>Building Future Leaders</h2>
@@ -591,12 +598,12 @@
         </div>
     </section>
 
-    <!-- ===== THREE LEVELS (crèche, nursery, primary) ===== -->
+    <!-- ===== THREE LEVELS ===== -->
     <section class="features-grid">
         <div class="feature-card creche-card">
             <i class="fas fa-baby"></i>
             <h3>Crèche</h3>
-            <p>Safe, caring environment for our littlest ones .</p>
+            <p>Safe, caring environment for our littlest ones.</p>
             <a href="#" class="card-link">Learn more</a>
         </div>
         <div class="feature-card nursery-card">
@@ -609,11 +616,11 @@
             <i class="fas fa-book-open"></i>
             <h3>Primary</h3>
             <p>Strong foundation in core subjects and values.</p>
-            <a href="#" class="card-link">Learn more </a>
+            <a href="#" class="card-link">Learn more</a>
         </div>
     </section>
 
-    <!-- ===== ABOUT / MISSION TABS (similar to original) ===== -->
+    <!-- ===== ABOUT / MISSION TABS ===== -->
     <section class="about-tabs">
         <div class="section-title">
             <span>Our Mission & Vision</span>
@@ -649,7 +656,7 @@
         </div>
     </section>
 
-    <!-- ===== STATS SECTION (fun facts) ===== -->
+    <!-- ===== STATS SECTION ===== -->
     <section class="stats-section">
         <div class="stats-grid">
             <div class="stat-item">
@@ -705,7 +712,7 @@
         </div>
     </section>
 
-    <!-- ===== FOOTER (multi-column) ===== -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -748,7 +755,7 @@
         </div>
     </footer>
 
-    <!-- ===== SIMPLE JAVASCRIPT ===== -->
+    <!-- ===== JAVASCRIPT ===== -->
     <script>
         (function() {
             // Mobile overlay
