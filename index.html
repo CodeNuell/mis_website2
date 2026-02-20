@@ -163,21 +163,20 @@
             cursor: pointer;
         }
 
-        /* ===== REFINED MOBILE OVERLAY ===== */
-        /* overlay / mobile menu (only for small screens) */
+        /* ===== MOBILE OVERLAY - WIDTH < 50% WITH SINGLE-LINE MENU ITEMS ===== */
         .mobile-overlay {
             position: fixed;
             top: 0;
             right: -100%;
-            width: 85%;
-            max-width: 380px;
+            width: 46%;                  /* just under 50% of screen width */
+            max-width: 280px;             /* sensible upper limit for large phones */
             height: 100vh;
             background: var(--white);
             box-shadow: -5px 0 30px rgba(0,0,0,0.2);
             z-index: 2000;
             transition: right 0.4s;
-            padding: 4rem 2rem 2rem 2rem;  /* adjusted top padding */
-            border-left: 6px solid var(--gold);
+            padding: 3.5rem 1rem 2rem 1rem;  /* slightly reduced horizontal padding */
+            border-left: 5px solid var(--gold);
         }
 
         .mobile-overlay.open {
@@ -186,9 +185,9 @@
 
         .close-btn {
             position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 2rem;  /* slightly smaller */
+            top: 18px;
+            right: 18px;
+            font-size: 1.8rem;  
             color: var(--primary-blue);
             cursor: pointer;
             line-height: 1;
@@ -200,20 +199,32 @@
 
         .mobile-nav-links {
             list-style: none;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
+            width: 100%;
         }
         .mobile-nav-links li {
-            margin-bottom: 1.2rem;  /* reduced spacing */
+            margin-bottom: 1rem;
+            width: 100%;
+            white-space: nowrap;          /* KEY: prevents text from wrapping */
         }
         .mobile-nav-links a {
             text-decoration: none;
             color: var(--primary-blue);
-            font-size: 1.4rem;      /* PROPORTIONAL SIZE — reduced from 1.8rem */
-            font-weight: 600;        /* slightly lighter weight fits mobile */
+            font-size: 1.2rem;           
+            font-weight: 600;        
             transition: 0.2s;
-            border-left: 4px solid transparent;
-            padding-left: 12px;
+            border-left: 3px solid transparent;
+            padding-left: 10px;
             display: inline-block;
+            white-space: nowrap;          /* ensures link stays on one line */
+            max-width: 100%;              /* respects parent width */
+            overflow: visible;             /* no clipping */
+        }
+        /* Special handling for longer text like "MIS Information" */
+        .mobile-nav-links a[data-long="true"],
+        .mobile-nav-links li:nth-child(3) a {
+            letter-spacing: -0.01em;       /* tiny adjustment if needed */
+            font-size: 1.18rem;             /* slightly smaller for long item */
         }
         .mobile-nav-links a:hover {
             border-left-color: var(--gold);
@@ -575,13 +586,16 @@
         <button class="menu-icon" id="menuToggle"><i class="fas fa-bars-staggered"></i></button>
     </header>
 
-    <!-- ===== MOBILE OVERLAY (with proportional text) ===== -->
+    <!-- ===== MOBILE OVERLAY ===== 
+         Now every link, including "MIS Information", stays on a single line
+         thanks to white-space: nowrap on li and a.
+    -->
     <div class="mobile-overlay" id="mobileOverlay">
         <span class="close-btn" id="closeNav"><i class="fas fa-times-circle"></i></span>
         <ul class="mobile-nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#">About Us</a></li>
-            <li><a href="#">MIS Information</a></li>
+            <li><a href="#">MIS Information</a></li>  <!-- stays in one line -->
             <li><a href="#">Admissions</a></li>
         </ul>
     </div>
